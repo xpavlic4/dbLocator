@@ -1,10 +1,10 @@
 package at.focusmr.dblocator.rest;
 
-import at.focusmr.dblocator.data.Jdbc;
-import at.focusmr.dblocator.formatter.jdbc.JdbcStringBuilder;
+import at.focusmr.dblocator.data.TnsName;
+import at.focusmr.dblocator.formatter.tnsnames.TnsNamesBuilder;
 import at.focusmr.dblocator.model.Databases;
-import at.focusmr.dblocator.xml.JdbcXml;
-import at.focusmr.dblocator.xml.JdbcsXml;
+import at.focusmr.dblocator.xml.TnsNameXml;
+import at.focusmr.dblocator.xml.TnsNamesXml;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -23,49 +23,50 @@ import static javax.ws.rs.core.MediaType.TEXT_XML;
  */
 @Path("/databases")
 @RequestScoped
-public class DatabaseResourceRESTService {
+public class TnsNamesResourceRESTService {
     @Inject
     private EntityManager em;
 
     @GET
-    @Path("/jdbcs")
+    @Path("/tnsnames")
     @Produces(TEXT_XML)
-    public JdbcsXml listAllJdbcs() {
+    public TnsNamesXml listAllJdbcs() {
         final List<Databases> results = em.createNamedQuery(Databases.Q.ALL, Databases.class).getResultList();
 
-        JdbcsXml l = new JdbcsXml();
+        TnsNamesXml l = new TnsNamesXml();
         for (Databases d : results) {
-            Jdbc xml = fromDatabase(d);
+            TnsName tnsName = fromDatabase(d);
 
-            JdbcXml jdbcXml = new JdbcXml();
-            jdbcXml.setCountry(d.getCountry());
-            jdbcXml.setConnectionString(xml.getValue());
+            TnsNameXml xml = new TnsNameXml();
+            xml.setCountry(d.getCountry());
+            xml.setTnsName(tnsName.getValue());
 
-            l.add(jdbcXml);
+            l.add(xml);
         }
         return l;
     }
 
     @GET
-    @Path("/jdbcs/{country:[a-z][a-z]*}")
+    @Path("/tnsnames/{country:[a-z][a-z]*}")
     @Produces(TEXT_XML)
-    public JdbcXml lookupMemberById(@PathParam("country") String country) {
+    public TnsNameXml lookupMemberById(@PathParam("country") String country) {
         TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.byCountry, Databases.class);
         query.setParameter("country", country);
         Databases d = query.getSingleResult();
 
-        Jdbc jdbc = fromDatabase(d);
-        JdbcXml jdbcXml = new JdbcXml();
-        jdbcXml.setConnectionString(jdbc.getValue());
-        jdbcXml.setCountry(country);
-        return jdbcXml;
+        TnsName tnsName = fromDatabase(d);
+        TnsNameXml Xml = new TnsNameXml();
+        Xml.setTnsName(tnsName.getValue());
+        Xml.setCountry(country);
+        return Xml;
     }
 
-    private Jdbc fromDatabase(Databases d) {
-        JdbcStringBuilder b = new JdbcStringBuilder();
+    private TnsName fromDatabase(Databases d) {
+        TnsNamesBuilder b = new TnsNamesBuilder();
+        b.withTnsName(d.getTnsname());
         b.withHost(d.getHostname());
         b.withPort(d.getPort());
-        b.withService(d.getServiceName());
+        b.withServiceName(d.getServiceName());
         b.withSid(d.getSid());
         return b.build();
     }

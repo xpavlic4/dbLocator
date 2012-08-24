@@ -10,9 +10,8 @@ body {
     margin: 0 auto;
     padding: 0 20px 10px 20px;
     border: 1px solid #666666;
-    width: 800px; /* subtract 40px from banner width for padding */
+    width: 800px;
     background: #FFFFFF;
-    padding-top: 110px;
 }
 
 #footer {

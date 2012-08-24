@@ -3,23 +3,23 @@ package at.focusmr.dblocator.xml;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Value object for list of {@link JdbcXml}.
+ * Holds TNS Names String for Oracle database.
  */
-@XmlRootElement(name = "jdbc")
-public class JdbcXml {
-    private String connectionString;
+@XmlRootElement(name = "tnsName")
+public class TnsNameXml {
+    private String tnsName;
     private String country;
 
-    public JdbcXml() {
+    public TnsNameXml() {
     }
 
     @SuppressWarnings(value = "unused")
-    public String getConnectionString() {
-        return connectionString;
+    public String getTnsName() {
+        return tnsName;
     }
 
-    public void setConnectionString(String connectionString) {
-        this.connectionString = connectionString;
+    public void setTnsName(String tnsName) {
+        this.tnsName = tnsName;
     }
 
     @SuppressWarnings(value = "unused")
@@ -33,6 +33,6 @@ public class JdbcXml {
 
     @Override
     public String toString() {
-        return connectionString;
+        return tnsName;
     }
 }

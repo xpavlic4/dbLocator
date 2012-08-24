@@ -41,7 +41,8 @@ public class Databases implements Serializable {
     private String sid;
 
     @Basic(optional = true)
-    private String service_name;
+    @Column(name = "service_name")
+    private String serviceName;
 
     @Basic
     private int port;
@@ -78,12 +79,12 @@ public class Databases implements Serializable {
         this.sid = sid;
     }
 
-    public String getService_name() {
-        return service_name;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setService_name(String service_name) {
-        this.service_name = service_name;
+    public void setServiceName(String service_name) {
+        this.serviceName = service_name;
     }
 
     public int getPort() {

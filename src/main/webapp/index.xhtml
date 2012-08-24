@@ -27,9 +27,9 @@
                     <f:facet name="header">Sid</f:facet>
                     #{_db.sid}
                 </rich:column>
-                <rich:column sortBy="#{_db.service_name}">
+                <rich:column sortBy="#{_db.serviceName}">
                     <f:facet name="header">Servicename</f:facet>
-                    #{_db.service_name}
+                    #{_db.serviceName}
                 </rich:column>
                 <rich:column sortBy="#{_db.port}">
                     <f:facet name="header">Port</f:facet>
@@ -48,9 +48,23 @@
                     <f:facet name="header">REST URL JDBC</f:facet>
                     <a href="#{request.contextPath}/rest/databases/jdbcs/#{_db.country}">/rest/databases/jdbcs/#{_db.country}</a>
                 </rich:column>
+                <rich:column>
+                    <f:facet name="header">REST URL TNS Names</f:facet>
+                    <a href="#{request.contextPath}/rest/databases/tnsnames/#{_db.country}">/rest/databases/tnsnames/#{_db.country}</a>
+                </rich:column>
                 <f:facet name="footer">
-                    REST URL for all JDBC: <a
-                        href="#{request.contextPath}/rest/databases/jdbcs/">/rest/databases/jdbcs</a>
+                    <h:panelGrid columns="1">
+                        <span>
+                    <h:outputText>REST URL for all JDBCs: </h:outputText><a
+                                href="#{request.contextPath}/rest/databases/jdbcs/">/rest/databases/jdbcs</a>
+                        </span>
+                        <span>
+                            <h:outputText>REST URL for all TNS Names: </h:outputText>
+                                                <a
+                                                        href="#{request.contextPath}/rest/databases/tnsnames/">/rest/databases/tnsnames</a>
+
+                        </span>
+                    </h:panelGrid>
                 </f:facet>
             </rich:dataTable>
         </h:form>

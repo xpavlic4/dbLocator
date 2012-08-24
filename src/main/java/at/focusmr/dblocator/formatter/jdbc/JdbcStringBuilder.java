@@ -1,6 +1,6 @@
-package at.focusmr.dblocator.util;
+package at.focusmr.dblocator.formatter.jdbc;
 
-import at.focusmr.dblocator.xml.JdbcXml;
+import at.focusmr.dblocator.data.Jdbc;
 
 /**
  * Builder for well formated JDBC Oracle connection .
@@ -29,7 +29,7 @@ public class JdbcStringBuilder {
         sid = s;
     }
 
-    public JdbcXml build() {
+    public Jdbc build() {
 
         check();
 
@@ -56,9 +56,7 @@ public class JdbcStringBuilder {
             sb.append("/");
             sb.append(service);
         }
-        JdbcXml jdbcXml = new JdbcXml();
-        jdbcXml.setConnectionString(sb.toString());
-        return jdbcXml;
+        return new Jdbc(sb.toString());
     }
 
     private void check() {

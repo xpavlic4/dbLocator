@@ -1,5 +1,6 @@
-import at.focusmr.dblocator.util.JdbcStringBuilder;
-import at.focusmr.dblocator.xml.JdbcXml;
+package at.focusmr.dblocator.formatter.jdbc;
+
+import at.focusmr.dblocator.data.Jdbc;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,9 +16,9 @@ public class JdbcStringBuilderTest {
         b.withHost("glob01.focusmr.co.at");
         b.withPort(1521);
         b.withSid("AEMGLOB.FOCUSMR");
-        JdbcXml s = b.build();
+        Jdbc s = b.build();
 
-        Assert.assertEquals(result, s.toString());
+        Assert.assertEquals(result, s.getValue());
 
     }
 
@@ -28,9 +29,9 @@ public class JdbcStringBuilderTest {
         b.withHost("orac01.focusmr.co.at");
         b.withPort(1521);
         b.withService("WEBDB1.FOCUSMR");
-        JdbcXml s = b.build();
+        Jdbc s = b.build();
 
-        Assert.assertEquals(result, s.toString());
+        Assert.assertEquals(result, s.getValue());
 
     }
 
@@ -49,8 +50,8 @@ public class JdbcStringBuilderTest {
         b.withPassword("nvvo4fx6");
         b.withPort(1521);
         b.withService("aemglob.focusmr");
-        JdbcXml jdbcXml = b.build();
-        log.info(jdbcXml.toString());
+        Jdbc jdbcXml = b.build();
+        log.info(jdbcXml.getValue());
 
     }
 
