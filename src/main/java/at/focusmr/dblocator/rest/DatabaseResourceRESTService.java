@@ -1,8 +1,9 @@
 package at.focusmr.dblocator.rest;
 
-import at.focusmr.dblocator.jdbc.JdbcString;
 import at.focusmr.dblocator.model.Databases;
 import at.focusmr.dblocator.util.JdbcStringBuilder;
+import at.focusmr.dblocator.xml.JdbcXml;
+import at.focusmr.dblocator.xml.JdbcsXml;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -12,7 +13,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import java.util.LinkedList;
 import java.util.List;
 
 import static javax.ws.rs.core.MediaType.TEXT_XML;
@@ -29,11 +29,14 @@ public class DatabaseResourceRESTService {
     @GET
     @Path("/jdbcs")
     @Produces(TEXT_XML)
-    public List<JdbcString> listAllJdbcs() {
-        final List<Databases> results = em.createQuery("select m from Databases m where m.category = 'dataentry'").getResultList();
-        List<JdbcString> l = new LinkedList<JdbcString>();
+    public JdbcsXml listAllJdbcs() {
+        final List<Databases> results = em.createQuery("select m from Databases m where m.category = 'dataentry'", Databases.class).getResultList();
+
+        JdbcsXml l = new JdbcsXml();
         for (Databases d : results) {
-            l.add(fromDatabase(d));
+            JdbcXml xml = fromDatabase(d);
+            xml.setCountry(d.getCountry());
+            l.add(xml);
         }
         return l;
     }
@@ -41,15 +44,17 @@ public class DatabaseResourceRESTService {
     @GET
     @Path("/jdbcs/{country:[a-z][a-z]*}")
     @Produces(TEXT_XML)
-    public JdbcString lookupMemberById(@PathParam("country") String country) {
-        TypedQuery<Databases> query = em.createQuery("select m from Databases m where m.category = 'dataentry' and m.country = :country", Databases.class);
+    public JdbcXml lookupMemberById(@PathParam("country") String country) {
+        TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.byCountry, Databases.class);
         query.setParameter("country", country);
         Databases d = query.getSingleResult();
 
-        return fromDatabase(d);
+        JdbcXml jdbcXml = fromDatabase(d);
+        jdbcXml.setCountry(country);
+        return jdbcXml;
     }
 
-    private JdbcString fromDatabase(Databases d) {
+    private JdbcXml fromDatabase(Databases d) {
         JdbcStringBuilder b = new JdbcStringBuilder();
         b.withHost(d.getHostname());
         b.withPort(d.getPort());

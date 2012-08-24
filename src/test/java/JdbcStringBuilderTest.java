@@ -1,5 +1,5 @@
-import at.focusmr.dblocator.jdbc.JdbcString;
 import at.focusmr.dblocator.util.JdbcStringBuilder;
+import at.focusmr.dblocator.xml.JdbcXml;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 public class JdbcStringBuilderTest {
     Logger log = Logger.getAnonymousLogger();
+
     @Test
     public void shouldGenerateCorrectSidString() {
         String result = "jdbc:oracle:thin:@glob01.focusmr.co.at:1521:AEMGLOB.FOCUSMR";
@@ -14,7 +15,7 @@ public class JdbcStringBuilderTest {
         b.withHost("glob01.focusmr.co.at");
         b.withPort(1521);
         b.withSid("AEMGLOB.FOCUSMR");
-        JdbcString s = b.build();
+        JdbcXml s = b.build();
 
         Assert.assertEquals(result, s.toString());
 
@@ -27,11 +28,12 @@ public class JdbcStringBuilderTest {
         b.withHost("orac01.focusmr.co.at");
         b.withPort(1521);
         b.withService("WEBDB1.FOCUSMR");
-        JdbcString s = b.build();
+        JdbcXml s = b.build();
 
         Assert.assertEquals(result, s.toString());
 
     }
+
     @Test(expected = IllegalStateException.class)
     public void testCreatingWithoutSidAndService() {
 
@@ -47,8 +49,8 @@ public class JdbcStringBuilderTest {
         b.withPassword("nvvo4fx6");
         b.withPort(1521);
         b.withService("aemglob.focusmr");
-        JdbcString jdbcString = b.build();
-        log.info(jdbcString.toString());
+        JdbcXml jdbcXml = b.build();
+        log.info(jdbcXml.toString());
 
     }
 

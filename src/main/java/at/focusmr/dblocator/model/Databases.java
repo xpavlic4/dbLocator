@@ -7,17 +7,31 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table
+@NamedQueries(
+        {
+                @NamedQuery(name = Databases.Q.ALL,
+                        query = "select d from Databases d  where d.category = 'dataentry'"),
+
+                @NamedQuery(name = Databases.Q.byCountry,
+                        query = "select m from Databases m where m.category = 'dataentry' and m.country = :country")
+        })
 public class Databases implements Serializable {
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public class Q {
+        public static final String ALL = "all";
+        public static final String byCountry = "byCountry";
+    }
+
     /**
      * Default value included to remove warning. Remove or modify at will. *
      */
     private static final long serialVersionUID = 1L;
 
+    //just use this, as we make only named queries
     @Id
-    @GeneratedValue
-    private Long id;
-
-    @Basic(optional = false)
     private String hostname;
 
     @Basic(optional = false)
@@ -39,13 +53,6 @@ public class Databases implements Serializable {
     private String country;
 
     //generated
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getHostname() {
         return hostname;
@@ -98,4 +105,5 @@ public class Databases implements Serializable {
     public String getCountry() {
         return country;
     }
+
 }
