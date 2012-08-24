@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * Value object for list of {@link TnsNameXml}.
  */
-@XmlRootElement(name = "tnmNames")
+@XmlRootElement(name = "tnsNames")
 public class TnsNamesXml {
-    @XmlElement(name = "tnmName")
+    @XmlElement(name = "tnsName")
     List<TnsNameXml> l = new LinkedList<TnsNameXml>();
 
     public void add(TnsNameXml xml) {
