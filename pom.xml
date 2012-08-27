@@ -9,6 +9,11 @@
     <packaging>war</packaging>
     <name>DbLocator</name>
 
+    <scm>
+        <connection>git://scm:git:git@svn.focusmr.co.at:dbLocator.git</connection>
+        <tag>HEAD</tag>
+        <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
+    </scm>
 
     <properties>
         <!-- Explicitly declaring the source encoding eliminates the following
@@ -157,6 +162,11 @@ given to the generated war, and hence the context root) -->
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>
                 <version>7.1.0.Final</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+
             </plugin>
         </plugins>
     </build>
