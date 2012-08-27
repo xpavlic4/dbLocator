@@ -10,7 +10,7 @@
 
     <scm>
         <connection>scm:git:git@svn.focusmr.co.at:dbLocator.git</connection>
-        <developerConnection>scm:git:git://svn.focusmr.co.at/dbLocator.git</developerConnection>
+        <developerConnection>scm:git:ssh://svn.focusmr.co.at/dbLocator.git</developerConnection>
         <tag>HEAD</tag>
         <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
     </scm>
