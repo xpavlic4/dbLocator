@@ -11,6 +11,9 @@ import java.nio.charset.Charset;
  * Reads file into {@link String} .
  */
 public class FileUtils {
+    private FileUtils() {
+    }
+
     public static String readFile(String path) throws IOException {
         FileInputStream stream = new FileInputStream(new File(path));
         try {

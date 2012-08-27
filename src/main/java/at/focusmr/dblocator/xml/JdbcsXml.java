@@ -10,7 +10,7 @@ import java.util.List;
 @XmlRootElement(name = "jbdcs")
 public class JdbcsXml {
     @XmlElement(name = "jdbc")
-    List<JdbcXml> l = new LinkedList<JdbcXml>();
+    private List<JdbcXml> l = new LinkedList<JdbcXml>();
 
     public void add(JdbcXml xml) {
         l.add(xml);

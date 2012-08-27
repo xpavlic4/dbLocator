@@ -12,7 +12,7 @@ import java.io.Serializable;
                 @NamedQuery(name = Databases.Q.ALL,
                         query = "select d from Databases d  where d.category = 'dataentry'"),
 
-                @NamedQuery(name = Databases.Q.byCountry,
+                @NamedQuery(name = Databases.Q.BY_COUNTRY,
                         query = "select m from Databases m where m.category = 'dataentry' and m.country = :country")
         })
 public class Databases implements Serializable {
@@ -20,9 +20,12 @@ public class Databases implements Serializable {
         this.country = country;
     }
 
-    public class Q {
+    public static class Q {
+        private Q() {
+        }
+
         public static final String ALL = "all";
-        public static final String byCountry = "byCountry";
+        public static final String BY_COUNTRY = "BY_COUNTRY";
     }
 
     /**
@@ -35,7 +38,8 @@ public class Databases implements Serializable {
     private String hostname;
 
     @Basic(optional = false)
-    private String tnsname;
+    @Column(name = "TNSNAME")
+    private String tnsName;
 
     @Basic(optional = true)
     private String sid;
@@ -63,12 +67,12 @@ public class Databases implements Serializable {
         this.hostname = hostname;
     }
 
-    public String getTnsname() {
-        return tnsname;
+    public String getTnsName() {
+        return tnsName;
     }
 
-    public void setTnsname(String tnsname) {
-        this.tnsname = tnsname;
+    public void setTnsName(String tnsname) {
+        this.tnsName = tnsname;
     }
 
     public String getSid() {
@@ -83,8 +87,8 @@ public class Databases implements Serializable {
         return serviceName;
     }
 
-    public void setServiceName(String service_name) {
-        this.serviceName = service_name;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     public int getPort() {

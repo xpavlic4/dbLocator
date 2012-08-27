@@ -50,20 +50,20 @@ public class TnsNamesResourceRESTService {
     @Path("/tnsnames/{country:[a-z][a-z]*}")
     @Produces(TEXT_XML)
     public TnsNameXml lookupMemberById(@PathParam("country") String country) {
-        TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.byCountry, Databases.class);
+        TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.BY_COUNTRY, Databases.class);
         query.setParameter("country", country);
         Databases d = query.getSingleResult();
 
         TnsName tnsName = fromDatabase(d);
-        TnsNameXml Xml = new TnsNameXml();
-        Xml.setTnsName(tnsName.getValue());
-        Xml.setCountry(country);
-        return Xml;
+        TnsNameXml xml = new TnsNameXml();
+        xml.setTnsName(tnsName.getValue());
+        xml.setCountry(country);
+        return xml;
     }
 
     private TnsName fromDatabase(Databases d) {
         TnsNamesBuilder b = new TnsNamesBuilder();
-        b.withTnsName(d.getTnsname());
+        b.withTnsName(d.getTnsName());
         b.withHost(d.getHostname());
         b.withPort(d.getPort());
         b.withServiceName(d.getServiceName());

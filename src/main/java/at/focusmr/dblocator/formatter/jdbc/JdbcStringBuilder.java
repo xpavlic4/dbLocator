@@ -38,8 +38,9 @@ public class JdbcStringBuilder {
             sb.append(user);
             sb.append("/");
         }
-        if (password != null)
+        if (password != null) {
             sb.append(password);
+        }
 
         sb.append("@");
         if (null != service) {
@@ -61,14 +62,17 @@ public class JdbcStringBuilder {
 
     private void check() {
         boolean sidOk = false;
-        if (sid != null && !sid.isEmpty())
+        if (sid != null && !sid.isEmpty()) {
             sidOk = true;
+        }
         boolean serviceOk = false;
-        if (service != null && !service.isEmpty())
+        if (service != null && !service.isEmpty()) {
             serviceOk = true;
+        }
 
-        if (!sidOk && !serviceOk)
+        if (!sidOk && !serviceOk) {
             throw new IllegalStateException();
+        }
     }
 
     public void withService(String s) {

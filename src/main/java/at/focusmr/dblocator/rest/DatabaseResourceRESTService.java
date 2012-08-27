@@ -50,7 +50,7 @@ public class DatabaseResourceRESTService {
     @Path("/jdbcs/{country:[a-z][a-z]*}")
     @Produces(TEXT_XML)
     public JdbcXml lookupMemberById(@PathParam("country") String country) {
-        TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.byCountry, Databases.class);
+        TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.BY_COUNTRY, Databases.class);
         query.setParameter("country", country);
         Databases d = query.getSingleResult();
 
