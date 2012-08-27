@@ -8,7 +8,7 @@ public class Jdbc {
         this.value = value;
     }
 
-    String value;
+    private String value;
 
     public String getValue() {
         return value;

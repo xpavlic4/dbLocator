@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 /**
  * Reads file into {@link String} .
  */
-public class FileUtils {
+public final class FileUtils {
     private FileUtils() {
     }
 

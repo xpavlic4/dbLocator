@@ -20,7 +20,7 @@ public class Databases implements Serializable {
         this.country = country;
     }
 
-    public static class Q {
+    public static final class Q {
         private Q() {
         }
 
