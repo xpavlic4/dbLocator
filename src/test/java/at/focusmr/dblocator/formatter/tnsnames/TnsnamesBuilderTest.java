@@ -22,7 +22,7 @@ public class TnsnamesBuilderTest {
     @Test(expected = IllegalStateException.class)
     public void shouldThrowExceptionIfNeitherServiceNameNorSidEntered() {
 
-        TnsNamesBuilder b = new TnsNamesBuilder();
+        TnsNamesBuilder2 b = new TnsNamesBuilder2();
         b.withTnsName("ORA11");
         b.withHost("127.0.0.1");
         b.withPort(1521);
@@ -37,7 +37,7 @@ public class TnsnamesBuilderTest {
 
 //        Logger.getAnonymousLogger().info(result);
 
-        TnsNamesBuilder b = new TnsNamesBuilder();
+        TnsNamesBuilder2 b = new TnsNamesBuilder2();
         b.withTnsName("ORA11");
         b.withHost("127.0.0.1");
         b.withPort(1521);
@@ -55,7 +55,7 @@ public class TnsnamesBuilderTest {
 
 //        Logger.getAnonymousLogger().info(result);
 
-        TnsNamesBuilder b = new TnsNamesBuilder();
+        TnsNamesBuilder2 b = new TnsNamesBuilder2();
         b.withTnsName("ORA11");
         b.withHost("127.0.0.1");
         b.withPort(1521);
