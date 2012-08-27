@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h1>Rest API Resources</h1>
+
+        <h2>JDBCs</h2>
+
+        <bq>Oracle JDBC connection strings.</bq>
+
+        <h3>JDBC</h3>
+        <h4>Resource</h4>
+
+        <bq>GET jdbcs/:country</bq>
+        <h4>Description</h4>
+
+        <bq>
+            Show JDBC connection string for given country.
+        </bq>
+        <h4>Example: http://localhost:8080/DbLocator/rest/databases/jdbcs/at</h4>
+        <bq>
+        <pre>
+&lt;jdbc&gt;<br/>	&lt;connectionString&gt;jdbc:oracle:thin:@//at1.focusmr.co.at:1521/aemAT1.FOCUSMR&lt;/connectionString&gt;<br/>	&lt;country&gt;at&lt;/country&gt;<br/>&lt;/jdbc&gt;
+        </pre>
+        </bq>
+
+        <h3>JDBCs</h3>
+        <h4>Resource</h4>
+
+        <bq>GET jdbcs</bq>
+        <h4>Description</h4>
+
+        <bq>
+            Show all JDBC connection strings.
+        </bq>
+        <h4>Example: http://localhost:8080/DbLocator/rest/databases/jdbcs</h4>
+        <bq>
+        <pre>
+&lt;jbdcs&gt;<br/>	&lt;jdbc&gt;<br/>		&lt;connectionString&gt;<br/>jdbc:oracle:thin:@//at1.focusmr.co.at:1521/aemAT1.FOCUSMR<br/>		&lt;/connectionString&gt;<br/>		&lt;country&gt;at&lt;/country&gt;<br/>	&lt;/jdbc&gt;<br/>	&lt;jdbc&gt;<br/>		&lt;connectionString&gt;jdbc:oracle:thin:@bg1.focusmr.co.bg:1521:XE&lt;/connectionString&gt;<br/>		&lt;country&gt;bg&lt;/country&gt;<br/>	&lt;/jdbc&gt;<br/>	&lt;jdbc&gt;<br/>		&lt;connectionString&gt;jdbc:oracle:thin:@ch1.focusmr.co.at:1521:XE&lt;/connectionString&gt;<br/>		&lt;country&gt;ch&lt;/country&gt;<br/>	&lt;/jdbc&gt;<br/>	&lt;jdbc&gt;<br/>		&lt;connectionString&gt;jdbc:oracle:thin:@se1.focusmr.co.at:1521:XE&lt;/connectionString&gt;<br/>		&lt;country&gt;se&lt;/country&gt;<br/>	&lt;/jdbc&gt;<br/>&lt;/jbdcs&gt;
+        </pre>
+        </bq>
+        <h2>TNS Names</h2>
+    </ui:define>
+</ui:composition>
