@@ -16,24 +16,24 @@ import at.focusmr.dblocator.data.TnsName;
  * )
  * </pre>
  */
-public class TnsNamesBuilder2 {
+public class TnsNamesBuilder {
     private String tnsName;
     private String host;
     private String serviceName;
     private int port;
     private String sid;
 
-    public TnsNamesBuilder2 withTnsName(String tnsName) {
+    public TnsNamesBuilder withTnsName(String tnsName) {
         this.tnsName = tnsName;
         return this;
     }
 
-    public TnsNamesBuilder2 withHost(String host) {
+    public TnsNamesBuilder withHost(String host) {
         this.host = host;
         return this;
     }
 
-    public TnsNamesBuilder2 withServiceName(String serviceName) {
+    public TnsNamesBuilder withServiceName(String serviceName) {
         this.serviceName = serviceName;
         return this;
 
@@ -67,12 +67,12 @@ public class TnsNamesBuilder2 {
 
     }
 
-    public TnsNamesBuilder2 withPort(int port) {
+    public TnsNamesBuilder withPort(int port) {
         this.port = port;
         return this;
     }
 
-    public TnsNamesBuilder2 withSid(String sid) {
+    public TnsNamesBuilder withSid(String sid) {
         this.sid = sid;
         return this;
     }

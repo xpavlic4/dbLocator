@@ -1,7 +1,7 @@
 package at.focusmr.dblocator.rest;
 
 import at.focusmr.dblocator.data.TnsName;
-import at.focusmr.dblocator.formatter.tnsnames.TnsNamesBuilder2;
+import at.focusmr.dblocator.formatter.tnsnames.TnsNamesBuilder;
 import at.focusmr.dblocator.model.Databases;
 import at.focusmr.dblocator.xml.TnsNameXml;
 import at.focusmr.dblocator.xml.TnsNamesXml;
@@ -62,7 +62,7 @@ public class TnsNamesResourceRESTService {
     }
 
     private TnsName fromDatabase(Databases d) {
-        TnsNamesBuilder2 b = new TnsNamesBuilder2();
+        TnsNamesBuilder b = new TnsNamesBuilder();
         b.withTnsName(d.getTnsname());
         b.withHost(d.getHostname());
         b.withPort(d.getPort());
