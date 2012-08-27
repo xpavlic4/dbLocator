@@ -5,12 +5,13 @@
 
     <groupId>at.focusmr</groupId>
     <artifactId>DbLocator</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
     <name>DbLocator</name>
 
     <scm>
-        <connection>git://scm:git:git@svn.focusmr.co.at:dbLocator.git</connection>
+        <connection>scm:git:git@svn.focusmr.co.at:dbLocator.git</connection>
+        <developerConnection>scm:git:git://svn.focusmr.co.at/dbLocator.git</developerConnection>
         <tag>HEAD</tag>
         <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
     </scm>
