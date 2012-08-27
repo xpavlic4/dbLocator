@@ -10,13 +10,19 @@
 </h:head>
 <h:body>
     <div id="container">
-        <div id="content">
+        <div id="header">
+            <h:link value="Home page" outcome="/index"/> |
+            <h:link value="Documentation" outcome="/docs/index"/>
+        </div>
 
+        <div id="content">
             <ui:insert name="content">
                 [Template content will be inserted here]
             </ui:insert>
         </div>
         <div id="footer">
+            <h:link value="Home page" outcome="/index"/> |
+            <h:link value="Documentation" outcome="/docs/index"/>
         </div>
     </div>
 </h:body>
