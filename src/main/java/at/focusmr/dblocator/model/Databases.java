@@ -13,8 +13,12 @@ import java.io.Serializable;
                         query = "select d from Databases d  where d.category = 'dataentry'"),
 
                 @NamedQuery(name = Databases.Q.BY_COUNTRY,
-                        query = "select m from Databases m where m.category = 'dataentry' and m.country = :country")
+                        query = "select m from Databases m where m.category = 'dataentry' and m.country = :country"),
+                @NamedQuery(name = Databases.Q.DISTINCT_COUNTRY,
+                        query = "select distinct m.country from Databases m where m.category = 'dataentry'")
+
         })
+
 public class Databases implements Serializable {
     public void setCountry(String country) {
         this.country = country;
@@ -26,6 +30,7 @@ public class Databases implements Serializable {
 
         public static final String ALL = "all";
         public static final String BY_COUNTRY = "BY_COUNTRY";
+        public static final String DISTINCT_COUNTRY = "DISTINCT_COUNTRY";
     }
 
     /**

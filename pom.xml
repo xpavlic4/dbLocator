@@ -134,7 +134,7 @@ as the API is included in JBoss AS 7 -->
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
-            <version>2.7.2</version>
+            <version>2.9.2</version>
         </dependency>
     </dependencies>
 
@@ -177,6 +177,7 @@ given to the generated war, and hence the context root) -->
             <plugin>
                 <groupId>org.scala-tools</groupId>
                 <artifactId>maven-scala-plugin</artifactId>
+                <version>2.15.2</version>
                 <executions>
                     <execution>
                         <goals>
