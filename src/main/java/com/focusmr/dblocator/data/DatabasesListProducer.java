@@ -13,9 +13,9 @@ import java.util.List;
 @RequestScoped
 @SuppressWarnings(value = "unused")
 public class DatabasesListProducer {
+
     @Inject
     private EntityManager em;
-
     private List<Databases> databases;
 
     @Produces

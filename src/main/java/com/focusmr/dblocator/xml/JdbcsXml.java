@@ -9,11 +9,11 @@ import java.util.List;
  */
 @XmlRootElement(name = "jbdcs")
 public class JdbcsXml {
+
     @XmlElement(name = "jdbc")
     private List<JdbcXml> l = new LinkedList<JdbcXml>();
 
     public void add(JdbcXml xml) {
         l.add(xml);
     }
-
 }

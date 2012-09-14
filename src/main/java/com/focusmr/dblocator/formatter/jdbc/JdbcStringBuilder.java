@@ -3,13 +3,15 @@ package com.focusmr.dblocator.formatter.jdbc;
 import com.focusmr.dblocator.data.Jdbc;
 
 /**
- * Builder for well formated JDBC Oracle connection .
- * For SID:
- * <pre>jdbc:oracle:thin:[USER/PASSWORD]@[HOST][:PORT]:SID</pre>
- * For Service:
- * <pre>jdbc:oracle:thin:[USER/PASSWORD]@//[HOST][:PORT]/SERVICE</pre>
+ * Builder for well formated JDBC Oracle connection . For SID:
+ * <pre>jdbc:oracle:thin:[USER/PASSWORD]
+ *
+ * @[HOST][:PORT]:SID</pre> For Service:
+ * <pre>jdbc:oracle:thin:[USER/PASSWORD]
+ * @//[HOST][:PORT]/SERVICE</pre>
  */
 public class JdbcStringBuilder {
+
     private String host;
     private int port;
     private String sid;

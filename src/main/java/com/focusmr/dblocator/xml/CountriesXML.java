@@ -10,6 +10,7 @@ import java.util.List;
  */
 @XmlRootElement(name = "countries")
 public class CountriesXML {
+
     @XmlElement(name = "country")
     private List<String> l = new LinkedList<String>();
 

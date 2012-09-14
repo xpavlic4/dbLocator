@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "tnsName")
 public class TnsNameXml {
+
     private String tnsName;
     private String country;
 

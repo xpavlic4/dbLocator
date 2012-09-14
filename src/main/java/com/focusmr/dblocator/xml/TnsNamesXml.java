@@ -10,11 +10,11 @@ import java.util.List;
  */
 @XmlRootElement(name = "tnsNames")
 public class TnsNamesXml {
+
     @XmlElement(name = "tnsName")
     private List<TnsNameXml> l = new LinkedList<TnsNameXml>();
 
     public void add(TnsNameXml xml) {
         l.add(xml);
     }
-
 }

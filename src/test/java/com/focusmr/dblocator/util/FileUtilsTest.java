@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class FileUtilsTest {
+
     @Test
     public void testFileExists() {
         URL url = this.getClass().getResource("/test.txt");

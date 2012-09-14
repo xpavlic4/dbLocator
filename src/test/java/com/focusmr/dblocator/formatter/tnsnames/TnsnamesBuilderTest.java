@@ -10,6 +10,7 @@ import java.net.URL;
  *
  */
 public class TnsnamesBuilderTest {
+
     @Test
     public void shouldFindTestFile() throws Exception {
         URL url = this.getClass().getResource("/test-service.ora");

@@ -7,63 +7,51 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table
-@NamedQueries(
-        {
-                @NamedQuery(name = Databases.Q.ALL,
-                        query = "select d from Databases d  where d.category = 'dataentry'"),
-
-                @NamedQuery(name = Databases.Q.BY_COUNTRY,
-                        query = "select m from Databases m where m.category = 'dataentry' and m.country = :country"),
-                @NamedQuery(name = Databases.Q.DISTINCT_COUNTRY,
-                        query = "select distinct m.country from Databases m where m.category = 'dataentry'")
-
-        })
-
+@NamedQueries({
+    @NamedQuery(name = Databases.Q.ALL,
+    query = "select d from Databases d  where d.category = 'dataentry'"),
+    @NamedQuery(name = Databases.Q.BY_COUNTRY,
+    query = "select m from Databases m where m.category = 'dataentry' and m.country = :country"),
+    @NamedQuery(name = Databases.Q.DISTINCT_COUNTRY,
+    query = "select distinct m.country from Databases m where m.category = 'dataentry'")
+})
 public class Databases implements Serializable {
+
     public void setCountry(String country) {
         this.country = country;
     }
 
     public static final class Q {
+
         private Q() {
         }
-
         public static final String ALL = "all";
         public static final String BY_COUNTRY = "BY_COUNTRY";
         public static final String DISTINCT_COUNTRY = "DISTINCT_COUNTRY";
     }
-
     /**
      * Default value included to remove warning. Remove or modify at will. *
      */
     private static final long serialVersionUID = 1L;
-
     //just use this, as we make only named queries
     @Id
     private String hostname;
-
     @Basic(optional = false)
     @Column(name = "TNSNAME")
     private String tnsName;
-
     @Basic(optional = true)
     private String sid;
-
     @Basic(optional = true)
     @Column(name = "service_name")
     private String serviceName;
-
     @Basic
     private int port;
-
     @Basic(optional = true)
     private String category;
-
     @Basic(optional = true)
     private String country;
 
     //generated
-
     public String getHostname() {
         return hostname;
     }
@@ -115,5 +103,4 @@ public class Databases implements Serializable {
     public String getCountry() {
         return country;
     }
-
 }

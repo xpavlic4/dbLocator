@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "jdbc")
 public class JdbcXml {
+
     private String connectionString;
     private String country;
 

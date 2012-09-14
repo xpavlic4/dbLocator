@@ -11,6 +11,7 @@ import java.nio.charset.Charset;
  * Reads file into {@link String} .
  */
 public final class FileUtils {
+
     private FileUtils() {
     }
 

@@ -17,6 +17,7 @@ import com.focusmr.dblocator.data.TnsName;
  * </pre>
  */
 public class TnsNamesBuilder {
+
     private String tnsName;
     private String host;
     private String serviceName;

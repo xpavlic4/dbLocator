@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.logging.Logger;
 
 public class JdbcStringBuilderTest {
+
     Logger log = Logger.getAnonymousLogger();
 
     @Test
@@ -54,5 +55,4 @@ public class JdbcStringBuilderTest {
         log.info(jdbcXml.getValue());
 
     }
-
 }

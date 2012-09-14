@@ -1,6 +1,5 @@
 package com.focusmr.dblocator.data;
 
-
 /**
  * Value object for TNS Name.
  */
