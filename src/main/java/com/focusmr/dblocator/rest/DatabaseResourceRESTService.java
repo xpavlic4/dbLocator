@@ -1,7 +1,6 @@
 package com.focusmr.dblocator.rest;
 
 import com.focusmr.dblocator.data.Jdbc;
-import com.focusmr.dblocator.formatter.jdbc.JdbcStringBuilder;
 import com.focusmr.dblocator.model.Databases;
 import com.focusmr.dblocator.xml.JdbcXml;
 import com.focusmr.dblocator.xml.JdbcsXml;
@@ -19,7 +18,7 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
 
 /**
- * This class produces a RESTful service to read the contents of the databases
+ * This class produces a REST-full service to read the contents of the databases
  * table.
  */
 @Path("/databases")
@@ -37,10 +36,8 @@ public class DatabaseResourceRESTService {
 
         JdbcsXml l = new JdbcsXml();
         for (Databases d : results) {
-            Jdbc xml = fromDatabase(d);
-
-            JdbcXml jdbcXml = new JdbcXml();
-            jdbcXml.setCountry(d.getCountry());
+            Jdbc xml = Jdbc.from(d);
+            JdbcXml jdbcXml = new JdbcXml(d);
             jdbcXml.setConnectionString(xml.getValue());
 
             l.add(jdbcXml);
@@ -56,19 +53,9 @@ public class DatabaseResourceRESTService {
         query.setParameter("country", country);
         Databases d = query.getSingleResult();
 
-        Jdbc jdbc = fromDatabase(d);
-        JdbcXml jdbcXml = new JdbcXml();
+        Jdbc jdbc = Jdbc.from(d);
+        JdbcXml jdbcXml = new JdbcXml(d);
         jdbcXml.setConnectionString(jdbc.getValue());
-        jdbcXml.setCountry(country);
         return jdbcXml;
-    }
-
-    private Jdbc fromDatabase(Databases d) {
-        JdbcStringBuilder b = new JdbcStringBuilder();
-        b.withHost(d.getHostname());
-        b.withPort(d.getPort());
-        b.withService(d.getServiceName());
-        b.withSid(d.getSid());
-        return b.build();
     }
 }

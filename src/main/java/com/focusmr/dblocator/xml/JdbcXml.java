@@ -1,20 +1,36 @@
 package com.focusmr.dblocator.xml;
 
+import com.focusmr.dblocator.model.Databases;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Value object for list of {@link JdbcXml}.
  */
 @XmlRootElement(name = "jdbc")
+@SuppressWarnings(value = "unused")
 public class JdbcXml {
 
     private String connectionString;
     private String country;
+    private String hostName;
+    private Integer port;
+    private String sid;
+    private String serviceName;
 
-    public JdbcXml() {
+    /**
+     * Copy constructor
+     *
+     * @param d database entry
+     */
+    public JdbcXml(Databases d) {
+        country = d.getCountry();
+        hostName = d.getHostname();
+        port = d.getPort();
+        sid = d.getSid();
+        serviceName = d.getServiceName();
     }
 
-    @SuppressWarnings(value = "unused")
     public String getConnectionString() {
         return connectionString;
     }
@@ -23,13 +39,24 @@ public class JdbcXml {
         this.connectionString = connectionString;
     }
 
-    @SuppressWarnings(value = "unused")
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getHostName() {
+        return hostName;
+    }
+
+    public Integer getPort() {
+        return port;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public String getServiceName() {
+        return serviceName;
     }
 
     @Override
