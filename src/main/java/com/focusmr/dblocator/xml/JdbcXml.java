@@ -18,6 +18,9 @@ public class JdbcXml {
     private String sid;
     private String serviceName;
 
+    public JdbcXml() {
+    }
+
     /**
      * Copy constructor
      *
@@ -57,6 +60,26 @@ public class JdbcXml {
 
     public String getServiceName() {
         return serviceName;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     @Override

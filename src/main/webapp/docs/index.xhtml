@@ -26,7 +26,16 @@
         <h5>http://localhost:8080/DbLocator/rest/databases/jdbcs/at</h5>
         <bq>
             <pre style="white-space: pre-wrap;">
-&lt;jdbc&gt;<br/>	&lt;connectionString&gt;jdbc:oracle:thin:@//at1.focusmr.co.at:1521/aemAT1.FOCUSMR&lt;/connectionString&gt;<br/>	&lt;country&gt;at&lt;/country&gt;<br/>&lt;/jdbc&gt;
+
+&lt;jdbc&gt;
+    &lt;connectionString&gt;
+        jdbc:oracle:thin:@//at1.focusmr.co.at:1521/aemAT1.FOCUSMR
+    &lt;/connectionString&gt;
+    &lt;country&gt;at&lt;/country&gt;
+    &lt;hostName&gt;at1.focusmr.co.at&lt;/hostName&gt;
+    &lt;port&gt;1521&lt;/port&gt;
+    &lt;serviceName&gt;aemAT1.FOCUSMR&lt;/serviceName&gt;
+&lt;/jdbc&gt;
             </pre>
         </bq>
 
@@ -42,7 +51,24 @@
         <h4>Example:</h4>
         <h5>http://localhost:8080/DbLocator/rest/databases/jdbcs</h5>
         <bq>
-            <pre style="white-space: pre-wrap;">&lt;tnsNames&gt;<br/>	&lt;tnsName&gt;<br/>		&lt;country&gt;at&lt;/country&gt;<br/>		&lt;tnsName&gt;<br/>aemAT1=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=at1.focusmr.co.at)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=aemAT1.FOCUSMR)))<br/>		&lt;/tnsName&gt;<br/>	&lt;/tnsName&gt;<br/>	&lt;tnsName&gt;<br/>		&lt;country&gt;bg&lt;/country&gt;<br/>		&lt;tnsName&gt;<br/>aemBG1=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=bg1.focusmr.co.bg)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XE)))<br/>		&lt;/tnsName&gt;<br/>	&lt;/tnsName&gt;<br/>	&lt;tnsName&gt;<br/>		&lt;country&gt;ch&lt;/country&gt;<br/>		&lt;tnsName&gt;<br/>aemCH1=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=ch1.focusmr.co.at)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XE)))<br/>		&lt;/tnsName&gt;<br/>	&lt;/tnsName&gt;<br/>&lt;/tnsNames&gt;
+            <pre style="white-space: pre-wrap;">
+                &lt;jbdcs&gt;
+&lt;jdbc&gt;
+    &lt;connectionString&gt;
+        jdbc:oracle:thin:@//at1.focusmr.co.at:1521/aemAT1.FOCUSMR
+    &lt;/connectionString&gt;
+    &lt;country&gt;at&lt;/country&gt;
+    &lt;hostName&gt;at1.focusmr.co.at&lt;/hostName&gt;
+    &lt;port&gt;1521&lt;/port&gt;
+    &lt;serviceName&gt;aemAT1.FOCUSMR&lt;/serviceName&gt;
+&lt;/jdbc&gt;
+&lt;jdbc&gt;
+    &lt;connectionString&gt;jdbc:oracle:thin:@bg1.focusmr.co.bg:1521:XE&lt;/connectionString&gt;
+    &lt;country&gt;bg&lt;/country&gt;
+    &lt;hostName&gt;bg1.focusmr.co.bg&lt;/hostName&gt;
+    &lt;port&gt;1521&lt;/port&gt;
+    &lt;sid&gt;XE&lt;/sid&gt;
+&lt;/jdbc&gt;
             </pre>
         </bq>
         <h2>TNS Names</h2>
@@ -74,6 +100,7 @@
 		&lt;tnsName&gt;aemCH1=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=ch1.focusmr.co.at)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=XE)))&lt;/tnsName&gt;
 	&lt;/tnsName&gt;
 &lt;/tnsNames&gt;
+
             </pre>
         </bq>
 
