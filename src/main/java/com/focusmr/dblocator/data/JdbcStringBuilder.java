@@ -1,6 +1,4 @@
-package com.focusmr.dblocator.formatter.jdbc;
-
-import com.focusmr.dblocator.data.Jdbc;
+package com.focusmr.dblocator.data;
 
 /**
  * Builder for well formated JDBC Oracle connection . For SID:

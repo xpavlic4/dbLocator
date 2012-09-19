@@ -1,6 +1,7 @@
 package com.focusmr.dblocator.formatter.jdbc;
 
 import com.focusmr.dblocator.data.Jdbc;
+import com.focusmr.dblocator.data.JdbcStringBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 

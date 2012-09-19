@@ -1,6 +1,5 @@
 package com.focusmr.dblocator.data;
 
-import com.focusmr.dblocator.formatter.jdbc.JdbcStringBuilder;
 import com.focusmr.dblocator.model.Databases;
 
 /**

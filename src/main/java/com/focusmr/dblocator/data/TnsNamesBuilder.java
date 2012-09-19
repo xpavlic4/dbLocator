@@ -1,6 +1,4 @@
-package com.focusmr.dblocator.formatter.tnsnames;
-
-import com.focusmr.dblocator.data.TnsName;
+package com.focusmr.dblocator.data;
 
 /**
  * Creates TNSNAMES.ORA file

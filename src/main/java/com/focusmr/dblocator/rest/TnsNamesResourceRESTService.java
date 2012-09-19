@@ -1,7 +1,7 @@
 package com.focusmr.dblocator.rest;
 
 import com.focusmr.dblocator.data.TnsName;
-import com.focusmr.dblocator.formatter.tnsnames.TnsNamesBuilder;
+import com.focusmr.dblocator.data.TnsNamesBuilder;
 import com.focusmr.dblocator.model.Databases;
 import com.focusmr.dblocator.xml.TnsNameXml;
 import com.focusmr.dblocator.xml.TnsNamesXml;

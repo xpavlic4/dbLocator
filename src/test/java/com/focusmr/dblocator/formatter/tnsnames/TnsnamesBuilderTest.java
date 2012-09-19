@@ -1,5 +1,6 @@
 package com.focusmr.dblocator.formatter.tnsnames;
 
+import com.focusmr.dblocator.data.TnsNamesBuilder;
 import com.focusmr.dblocator.util.FileUtils;
 import junit.framework.Assert;
 import org.junit.Test;

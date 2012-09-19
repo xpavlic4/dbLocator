@@ -13,7 +13,7 @@ public class JdbcXml {
 
     private String connectionString;
     private String country;
-    private String hostName;
+    private String hostname;
     private Integer port;
     private String sid;
     private String serviceName;
@@ -28,7 +28,7 @@ public class JdbcXml {
      */
     public JdbcXml(Databases d) {
         country = d.getCountry();
-        hostName = d.getHostname();
+        hostname = d.getHostname();
         port = d.getPort();
         sid = d.getSid();
         serviceName = d.getServiceName();
@@ -46,8 +46,8 @@ public class JdbcXml {
         return country;
     }
 
-    public String getHostName() {
-        return hostName;
+    public String getHostname() {
+        return hostname;
     }
 
     public Integer getPort() {
@@ -66,8 +66,8 @@ public class JdbcXml {
         this.country = country;
     }
 
-    public void setHostName(String hostName) {
-        this.hostName = hostName;
+    public void setHostname(String hostname) {
+        this.hostname = hostname;
     }
 
     public void setPort(Integer port) {
