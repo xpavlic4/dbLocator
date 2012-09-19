@@ -13,7 +13,7 @@ public class TnsnamesBuilderTest {
 
     @Test
     public void shouldFindTestFile() throws Exception {
-        URL url = this.getClass().getResource("/test-service.ora");
+        URL url = getClass().getClassLoader().getResource("/test-service.ora");
         String s2 = FileUtils.readFile(url.getPath());
 
         Assert.assertTrue(s2 != null);
