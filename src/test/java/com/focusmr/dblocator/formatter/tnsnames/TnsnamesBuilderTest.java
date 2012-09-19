@@ -5,6 +5,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import java.net.URL;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,7 +14,8 @@ public class TnsnamesBuilderTest {
 
     @Test
     public void shouldFindTestFile() throws Exception {
-        URL url = getClass().getClassLoader().getResource("/test-service.ora");
+        URL url = getClass().getResource("/test-service.ora");
+        Logger.getAnonymousLogger().info(url.toString());
         String s2 = FileUtils.readFile(url.getPath());
 
         Assert.assertTrue(s2 != null);
@@ -32,7 +34,7 @@ public class TnsnamesBuilderTest {
 
     @Test
     public void shouldCheckServiceNameEntered() throws Exception {
-        URL url = this.getClass().getResource("/test-service.ora");
+        URL url = getClass().getResource("/test-service.ora");
         String result = FileUtils.readFile(url.getPath());
         result = result.replaceAll("\\s", "");
 
