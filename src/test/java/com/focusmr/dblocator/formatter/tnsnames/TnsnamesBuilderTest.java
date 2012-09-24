@@ -8,9 +8,6 @@ import org.junit.Test;
 import java.net.URL;
 import java.util.logging.Logger;
 
-/**
- *
- */
 public class TnsnamesBuilderTest {
 
     @Test
@@ -39,8 +36,6 @@ public class TnsnamesBuilderTest {
         String result = FileUtils.readFile(url.getPath());
         result = result.replaceAll("\\s", "");
 
-//        Logger.getAnonymousLogger().info(result);
-
         TnsNamesBuilder b = new TnsNamesBuilder();
         b.withTnsName("ORA11");
         b.withHost("127.0.0.1");
@@ -51,13 +46,16 @@ public class TnsnamesBuilderTest {
         Assert.assertEquals(result, s);
     }
 
+    /**
+     * test
+     *
+     * @throws Exception
+     */
     @Test
     public void shouldCheckSidEntered() throws Exception {
-        URL url = this.getClass().getResource("/test-service.ora");
+        URL url = getClass().getResource("/test-sid.ora");
         String result = FileUtils.readFile(url.getPath());
         result = result.replaceAll("\\s", "");
-
-//        Logger.getAnonymousLogger().info(result);
 
         TnsNamesBuilder b = new TnsNamesBuilder();
         b.withTnsName("ORA11");

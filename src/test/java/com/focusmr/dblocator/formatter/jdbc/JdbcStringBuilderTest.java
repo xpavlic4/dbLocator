@@ -44,6 +44,9 @@ public class JdbcStringBuilderTest {
         b.build();
     }
 
+    /**
+     * test
+     */
     @Test
     public void testGeneratingJdbcString() {
         JdbcStringBuilder b = new JdbcStringBuilder();

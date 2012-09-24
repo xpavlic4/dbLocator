@@ -22,6 +22,12 @@ public class TnsNamesBuilder {
     private int port;
     private String sid;
 
+    /**
+     * with tns name
+     *
+     * @param tnsName
+     * @return
+     */
     public TnsNamesBuilder withTnsName(String tnsName) {
         this.tnsName = tnsName;
         return this;
