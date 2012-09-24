@@ -1,6 +1,5 @@
-package com.focusmr.dblocator.formatter.tnsnames;
+package com.focusmr.dblocator.data;
 
-import com.focusmr.dblocator.data.TnsNamesBuilder;
 import com.focusmr.dblocator.util.FileUtils;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -8,7 +7,7 @@ import org.junit.Test;
 import java.net.URL;
 import java.util.logging.Logger;
 
-public class TnsnamesBuilderTest {
+public class TnsNamesBuilderTest {
 
     @Test
     public void shouldFindTestFile() throws Exception {
