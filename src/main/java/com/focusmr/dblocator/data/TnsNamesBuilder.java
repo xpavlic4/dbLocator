@@ -50,10 +50,12 @@ public class TnsNamesBuilder {
         sb.append("))");
         sb.append(")");
         sb.append("(CONNECT_DATA =");
-        sb.append("(SERVICE_NAME = ");
+
         if (null != serviceName && !serviceName.isEmpty()) {
+            sb.append("(SERVICE_NAME = ");
             sb.append(serviceName);
         } else if (null != sid && !sid.isEmpty()) {
+            sb.append("(SID = ");
             sb.append(sid);
         } else {
             throw new IllegalStateException("Either servicename or sid has to be entered.");
