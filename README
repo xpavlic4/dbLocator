@@ -1,5 +1,3 @@
 Repo layout
-=========== 
-
-src/ - Maven src structure
+===========
 pom.xml - Maven build file  

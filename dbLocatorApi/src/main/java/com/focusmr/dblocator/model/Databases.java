@@ -8,12 +8,12 @@ import java.io.Serializable;
 @XmlRootElement
 @Table
 @NamedQueries({
-    @NamedQuery(name = Databases.Q.ALL,
-    query = "select d from Databases d  where d.category = 'dataentry'"),
-    @NamedQuery(name = Databases.Q.BY_COUNTRY,
-    query = "select m from Databases m where m.category = 'dataentry' and m.country = :country"),
-    @NamedQuery(name = Databases.Q.DISTINCT_COUNTRY,
-    query = "select distinct m.country from Databases m where m.category = 'dataentry'")
+        @NamedQuery(name = Databases.Q.ALL,
+                query = "select d from Databases d  where d.category = 'dataentry'"),
+        @NamedQuery(name = Databases.Q.BY_COUNTRY,
+                query = "select m from Databases m where m.category = 'dataentry' and m.country = :country"),
+        @NamedQuery(name = Databases.Q.DISTINCT_COUNTRY,
+                query = "select distinct m.country from Databases m where m.category = 'dataentry'")
 })
 public class Databases implements Serializable {
 
@@ -25,10 +25,12 @@ public class Databases implements Serializable {
 
         private Q() {
         }
+
         public static final String ALL = "all";
         public static final String BY_COUNTRY = "BY_COUNTRY";
         public static final String DISTINCT_COUNTRY = "DISTINCT_COUNTRY";
     }
+
     /**
      * Default value included to remove warning. Remove or modify at will. *
      */
