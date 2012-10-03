@@ -32,7 +32,7 @@ public class TnsNamesResourceRESTService {
     @GET
     @Path("/tnsnames")
     @Produces(TEXT_XML)
-    public TnsNamesXml listAllJdbcs() {
+    public TnsNamesXml listAllTns() {
         final List<Databases> results = em.createNamedQuery(Databases.Q.ALL, Databases.class).getResultList();
 
         TnsNamesXml l = new TnsNamesXml();
@@ -42,6 +42,7 @@ public class TnsNamesResourceRESTService {
             TnsNameXml xml = new TnsNameXml();
             xml.setCountry(d.getCountry());
             xml.setTnsName(tnsName.getValue());
+            xml.setNlsLang(d.getNlsLang());
 
             l.add(xml);
         }
@@ -60,6 +61,7 @@ public class TnsNamesResourceRESTService {
         TnsNameXml xml = new TnsNameXml();
         xml.setTnsName(tnsName.getValue());
         xml.setCountry(country);
+        xml.setNlsLang(d.getNlsLang());
         return xml;
     }
 

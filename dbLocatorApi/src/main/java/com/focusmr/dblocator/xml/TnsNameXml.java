@@ -10,6 +10,7 @@ public class TnsNameXml {
 
     private String tnsName;
     private String country;
+    private String nlsLang;
 
     public TnsNameXml() {
     }
@@ -35,5 +36,13 @@ public class TnsNameXml {
     @Override
     public String toString() {
         return tnsName;
+    }
+
+    public String getNlsLang() {
+        return nlsLang;
+    }
+
+    public void setNlsLang(String nlsLang) {
+        this.nlsLang = nlsLang;
     }
 }
