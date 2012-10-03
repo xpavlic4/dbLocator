@@ -54,6 +54,7 @@ public class CountriesResourceRESTService {
         TnsNameXml xml = new TnsNameXml();
         xml.setTnsName(tnsName.getValue());
         xml.setCountry(country);
+        xml.setNlsLang(d.getNlsLang());
         return xml;
     }
 
