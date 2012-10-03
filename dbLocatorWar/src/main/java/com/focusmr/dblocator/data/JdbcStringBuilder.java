@@ -1,5 +1,7 @@
 package com.focusmr.dblocator.data;
 
+import com.focusmr.dblocator.xml.Jdbc;
+
 /**
  * Builder for well formated JDBC Oracle connection . For SID:
  * <pre>jdbc:oracle:thin:[USER/PASSWORD]

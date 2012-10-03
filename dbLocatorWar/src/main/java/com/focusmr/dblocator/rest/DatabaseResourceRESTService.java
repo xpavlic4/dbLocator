@@ -1,7 +1,8 @@
 package com.focusmr.dblocator.rest;
 
-import com.focusmr.dblocator.data.Jdbc;
+import com.focusmr.dblocator.data.JdbcStringBuilder;
 import com.focusmr.dblocator.model.Databases;
+import com.focusmr.dblocator.xml.Jdbc;
 import com.focusmr.dblocator.xml.JdbcXml;
 import com.focusmr.dblocator.xml.JdbcsXml;
 
@@ -36,10 +37,20 @@ public class DatabaseResourceRESTService {
 
         JdbcsXml l = new JdbcsXml();
         for (Databases d : results) {
-            Jdbc xml = Jdbc.from(d);
-            JdbcXml jdbcXml = new JdbcXml(d);
-            jdbcXml.setConnectionString(xml.getValue());
+            JdbcStringBuilder b = new JdbcStringBuilder();
+            b.withHost(d.getHostname());
+            b.withPort(d.getPort());
+            b.withService(d.getServiceName());
+            b.withSid(d.getSid());
+            Jdbc xml = b.build();
 
+            JdbcXml jdbcXml = new JdbcXml();
+            jdbcXml.setConnectionString(xml.getValue());
+            jdbcXml.setCountry(d.getCountry());
+            jdbcXml.setHostname(d.getHostname());
+            jdbcXml.setPort(d.getPort());
+            jdbcXml.setServiceName(d.getServiceName());
+            jdbcXml.setSid(d.getSid());
             l.add(jdbcXml);
         }
         return l;
@@ -53,9 +64,19 @@ public class DatabaseResourceRESTService {
         query.setParameter("country", country);
         Databases d = query.getSingleResult();
 
-        Jdbc jdbc = Jdbc.from(d);
-        JdbcXml jdbcXml = new JdbcXml(d);
+        JdbcStringBuilder b = new JdbcStringBuilder();
+        b.withHost(d.getHostname());
+        b.withPort(d.getPort());
+        b.withService(d.getServiceName());
+        b.withSid(d.getSid());
+        Jdbc jdbc = b.build();
+        JdbcXml jdbcXml = new JdbcXml();
         jdbcXml.setConnectionString(jdbc.getValue());
+        jdbcXml.setCountry(d.getCountry());
+        jdbcXml.setHostname(d.getHostname());
+        jdbcXml.setPort(d.getPort());
+        jdbcXml.setServiceName(d.getServiceName());
+        jdbcXml.setSid(d.getSid());
         return jdbcXml;
     }
 }

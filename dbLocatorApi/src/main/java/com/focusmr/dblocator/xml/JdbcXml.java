@@ -1,7 +1,5 @@
 package com.focusmr.dblocator.xml;
 
-import com.focusmr.dblocator.model.Databases;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -17,22 +15,6 @@ public class JdbcXml {
     private Integer port;
     private String sid;
     private String serviceName;
-
-    public JdbcXml() {
-    }
-
-    /**
-     * Copy constructor
-     *
-     * @param d database entry
-     */
-    public JdbcXml(Databases d) {
-        country = d.getCountry();
-        hostname = d.getHostname();
-        port = d.getPort();
-        sid = d.getSid();
-        serviceName = d.getServiceName();
-    }
 
     public String getConnectionString() {
         return connectionString;
