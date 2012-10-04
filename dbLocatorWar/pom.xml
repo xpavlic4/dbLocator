@@ -6,19 +6,18 @@
     <parent>
         <groupId>com.focusmr</groupId>
         <artifactId>DbLocator</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.6-SNAPSHOT</version>
     </parent>
 
     <groupId>com.focusmr</groupId>
     <artifactId>DbLocatorWar</artifactId>
-    <version>1.0.5</version>
     <packaging>war</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.focusmr</groupId>
             <artifactId>DbLocatorApi</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.6-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
