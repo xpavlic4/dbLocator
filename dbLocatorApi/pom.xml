@@ -7,7 +7,6 @@
         <groupId>com.focusmr</groupId>
         <artifactId>DbLocator</artifactId>
         <version>1.0.9-SNAPSHOT</version>
-        <relativePath/>
     </parent>
 
     <groupId>com.focusmr</groupId>
