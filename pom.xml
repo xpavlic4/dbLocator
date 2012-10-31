@@ -15,8 +15,8 @@
     </modules>
 
     <scm>
-        <connection>scm:git:ssh://git@svn.focusmr.co.at:DbLocator.git</connection>
-        <developerConnection>scm:git:ssh://git@svn.focusmr.co.at/DbLocator.git</developerConnection>
+        <connection>scm:git:ssh://git@svn.focusmr.co.at:dblocator.git</connection>
+        <developerConnection>scm:git:ssh://git@svn.focusmr.co.at/dblocator.git</developerConnection>
         <tag>DbLocator-1.0.12</tag>
         <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
     </scm>
