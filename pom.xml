@@ -12,6 +12,7 @@
     <modules>
         <module>dbLocatorApi</module>
         <module>dbLocatorWar</module>
+        <module>dbLocatorClient</module>
     </modules>
 
     <scm>

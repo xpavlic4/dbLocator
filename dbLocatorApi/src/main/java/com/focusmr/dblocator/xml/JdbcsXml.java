@@ -7,13 +7,18 @@ import java.util.List;
 
 /**
  */
+@SuppressWarnings("unused")
 @XmlRootElement(name = "jbdcs")
 public class JdbcsXml {
 
     @XmlElement(name = "jdbc")
-    private List<JdbcXml> l = new LinkedList<JdbcXml>();
+    private List<JdbcXml> jdbcs = new LinkedList<JdbcXml>();
 
     public void add(JdbcXml xml) {
-        l.add(xml);
+        jdbcs.add(xml);
+    }
+
+    public List<JdbcXml> getJdbcs() {
+        return jdbcs;
     }
 }
