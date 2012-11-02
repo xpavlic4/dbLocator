@@ -5,6 +5,7 @@ import com.focusmr.dblocator.xml.JdbcsXml;
 
 import javax.ws.rs.HttpMethod;
 import javax.ws.rs.core.MediaType;
+import java.net.URL;
 
 /**
  * Client proxy for DbLocator REST webservice.
@@ -12,7 +13,16 @@ import javax.ws.rs.core.MediaType;
 @SuppressWarnings("unused")
 public class DbLocatorRestClient extends RestClient {
 
-    private String url;
+    private URL url;
+
+    /**
+     * Constructor with URL of webservice.
+     *
+     * @param url e.g. http://glob01:9090/DbLocator/rest/databases/jdbcs/
+     */
+    public DbLocatorRestClient(URL url) {
+        this.url = url;
+    }
 
     /**
      * Call webservice to obtain all JDBC strings.
@@ -22,7 +32,7 @@ public class DbLocatorRestClient extends RestClient {
     public JdbcsXml doGetJdbcs() {
         JdbcsXml xml;
         RequestBuilder rb = new RequestBuilder();
-        rb.withURI(getUrl());
+        rb.withURI(getUrl().toString());
         rb.withMethod(HttpMethod.GET);
         rb.withContentType(MediaType.APPLICATION_XML);
         Request r = rb.build();
@@ -42,7 +52,7 @@ public class DbLocatorRestClient extends RestClient {
     public JdbcXml doGetJdbc(Country c) {
         JdbcXml execute;
         RequestBuilder rb = new RequestBuilder();
-        rb.withURI(getUrl());
+        rb.withURI(getUrl().toString());
         rb.withMethod(HttpMethod.GET);
         rb.withContentType(MediaType.APPLICATION_XML);
         rb.withEntity(c.getCountry());
@@ -58,16 +68,8 @@ public class DbLocatorRestClient extends RestClient {
      *
      * @return url
      */
-    public String getUrl() {
+    public URL getUrl() {
         return url;
     }
 
-    /**
-     * Sets url.
-     *
-     * @param url url
-     */
-    public void setUrl(String url) {
-        this.url = url;
-    }
 }
