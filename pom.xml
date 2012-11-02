@@ -4,7 +4,7 @@
 
     <groupId>com.focusmr</groupId>
     <artifactId>DbLocator</artifactId>
-    <version>1.0.14</version>
+    <version>1.0.15-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>DbLocator</name>
 
@@ -18,7 +18,7 @@
         <connection>scm:git:ssh://git@svn.focusmr.co.at:dblocator.git</connection>
         <developerConnection>scm:git:ssh://git@svn.focusmr.co.at/dblocator.git</developerConnection>
         <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
-      <tag>DbLocator-1.0.14</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
