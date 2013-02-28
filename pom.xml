@@ -27,21 +27,6 @@
         <tag>HEAD</tag>
     </scm>
 
-    <distributionManagement>
-        <!-- use the following if you're not using a snapshot version. -->
-        <repository>
-            <id>nexus</id>
-            <name>Focus</name>
-            <url>http://ci.focusmr.co.at:8080/nexus/content/repositories/thirdparty</url>
-        </repository>
-        <!-- use the following if you ARE using a snapshot version. -->
-        <snapshotRepository>
-            <id>nexus</id>
-            <name>RepositoryProxy</name>
-            <url>http://ci.focusmr.co.at:8080/nexus/content/repositories/thirdparty-snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <properties>
         <!-- Explicitly declaring the source encoding eliminates the following
         message: -->
