@@ -18,7 +18,7 @@ public class GenericRestClient {
      * @param clazz class to be unmarschal into
      * @return unmarhalled object
      */
-    Object execute(Request r, Class clazz) throws Exception {
+    public Object execute(Request r, Class clazz) throws Exception {
         HttpURLConnection connection = null;
         try {
             String uri = r.getUri();
@@ -48,7 +48,7 @@ public class GenericRestClient {
      * Builder pattern for {@link GenericRestClient.Request}
      */
     @SuppressWarnings("SameParameterValue")
-    protected static class RequestBuilder {
+    public static class RequestBuilder {
 
         private String uri;
         private String method;
