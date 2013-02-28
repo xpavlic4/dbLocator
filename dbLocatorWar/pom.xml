@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -8,7 +9,6 @@
         <version>1.0.16-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.focusmr</groupId>
     <artifactId>DbLocatorWar</artifactId>
     <packaging>war</packaging>
 
@@ -23,5 +23,22 @@
         <!-- Maven will append the version to the finalName (which is the
 name given to the generated war, and hence the context root) -->
         <finalName>DbLocator</finalName>
+        <plugins>
+            <!-- The JBoss AS plugin deploys your war to a local JBoss AS
+                 container -->
+            <!-- To use, run: mvn package jboss-as:deploy -->
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.1.1.Final</version>
+                <configuration>
+                    <hostname>${jboss-as-maven-plugin.hostname}</hostname>
+                    <port>${jboss-as-maven-plugin.port}</port>
+                    <username>${jboss-as-maven-plugin.username}</username>
+                    <password>${jboss-as-maven-plugin.password}</password>
+                    <filename>${project.build.finalName}.war</filename>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
