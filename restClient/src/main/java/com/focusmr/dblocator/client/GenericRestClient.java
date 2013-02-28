@@ -1,8 +1,6 @@
 package com.focusmr.dblocator.client;
 
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,17 +8,17 @@ import java.net.URL;
 /**
  * Handles REST requests from client site.
  */
-public class RestClient {
+public class GenericRestClient {
 
     /**
-     * Opens connection based on {@link Request} a transform input stream into
+     * Opens connection based on {@link GenericRestClient.Request} a transform input stream into
      * class.
      *
      * @param r     holding metadata of request
      * @param clazz class to be unmarschal into
      * @return unmarhalled object
      */
-    Object execute(Request r, Class clazz) throws DbLocatorException {
+    Object execute(Request r, Class clazz) throws Exception {
         HttpURLConnection connection = null;
         try {
             String uri = r.getUri();
@@ -39,10 +37,6 @@ public class RestClient {
 
             JAXBContext jc = JAXBContext.newInstance(clazz);
             return jc.createUnmarshaller().unmarshal(xml);
-        } catch (IOException e) {
-            throw new DbLocatorException(e);
-        } catch (JAXBException e) {
-            throw new DbLocatorException(e);
         } finally {
             if (null != connection) {
                 connection.disconnect();
@@ -51,7 +45,7 @@ public class RestClient {
     }
 
     /**
-     * Builder pattern for {@link Request}
+     * Builder pattern for {@link GenericRestClient.Request}
      */
     @SuppressWarnings("SameParameterValue")
     protected static class RequestBuilder {

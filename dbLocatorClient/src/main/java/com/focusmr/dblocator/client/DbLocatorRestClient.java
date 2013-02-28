@@ -11,7 +11,7 @@ import java.net.URL;
  * Client proxy for DbLocator REST webservice.
  */
 @SuppressWarnings("unused")
-public class DbLocatorRestClient extends RestClient {
+public class DbLocatorRestClient extends GenericRestClient {
 
     private URL url;
 
@@ -37,7 +37,12 @@ public class DbLocatorRestClient extends RestClient {
         rb.withContentType(MediaType.APPLICATION_XML);
         Request r = rb.build();
 
-        Object execute = execute(r, JdbcsXml.class);
+        Object execute;
+        try {
+            execute = execute(r, JdbcsXml.class);
+        } catch (Exception e) {
+            throw new DbLocatorException(e);
+        }
         xml = (JdbcsXml) execute;
 
         return xml;
@@ -58,7 +63,11 @@ public class DbLocatorRestClient extends RestClient {
         rb.withEntity(c.getCountry());
         Request r = rb.build();
 
-        execute = (JdbcXml) execute(r, JdbcXml.class);
+        try {
+            execute = (JdbcXml) execute(r, JdbcXml.class);
+        } catch (Exception e) {
+            throw new DbLocatorException(e);
+        }
         return execute;
     }
 
