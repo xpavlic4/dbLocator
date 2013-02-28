@@ -3,8 +3,6 @@ package com.focusmr.dblocator.client;
 import com.focusmr.dblocator.xml.JdbcXml;
 import com.focusmr.dblocator.xml.JdbcsXml;
 
-import javax.ws.rs.HttpMethod;
-import javax.ws.rs.core.MediaType;
 import java.net.URL;
 
 /**
@@ -33,8 +31,8 @@ public class DbLocatorRestClient extends GenericRestClient {
         JdbcsXml xml;
         RequestBuilder rb = new RequestBuilder();
         rb.withURI(getUrl().toString());
-        rb.withMethod(HttpMethod.GET);
-        rb.withContentType(MediaType.APPLICATION_XML);
+        rb.withMethod("GET");
+        rb.withContentType("application/xml");
         Request r = rb.build();
 
         Object execute;
@@ -58,8 +56,8 @@ public class DbLocatorRestClient extends GenericRestClient {
         JdbcXml execute;
         RequestBuilder rb = new RequestBuilder();
         rb.withURI(getUrl().toString());
-        rb.withMethod(HttpMethod.GET);
-        rb.withContentType(MediaType.APPLICATION_XML);
+        rb.withMethod("GET");
+        rb.withContentType("application/xml");
         rb.withEntity(c.getCountry());
         Request r = rb.build();
 
