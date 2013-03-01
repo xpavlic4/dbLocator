@@ -39,6 +39,28 @@ name given to the generated war, and hence the context root) -->
                     <filename>${project.build.finalName}.war</filename>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.enunciate</groupId>
+                <artifactId>maven-enunciate-plugin</artifactId>
+                <version>1.26.2</version>
+                <configuration>
+                    <configFile>enunciate.xml</configFile>
+                    <enunciateArtifactId/>
+                    <moduleName/>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>docs</goal>
+                        </goals>
+                        <configuration>
+                            <docsDir>${project.build.directory}/${project.build.finalName}/docs</docsDir>
+                        </configuration>
+
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
