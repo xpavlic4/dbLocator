@@ -1,6 +1,8 @@
 package com.focusmr.dblocator.client;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -25,23 +27,59 @@ public class GenericRestClient {
             if (r.getEntity() != null) {
                 uri += r.getEntity();
             }
-
-            URL url = new URL(uri);
-            connection = (HttpURLConnection) url.openConnection();
-
-            connection.setDoOutput(true);
-            connection.setInstanceFollowRedirects(false);
-            connection.setRequestMethod(r.getMethod());
-            connection.setRequestProperty("Content-Type", r.getType());
+            connection = prepareConnection(r, uri);
             InputStream xml = connection.getInputStream();
 
-            JAXBContext jc = JAXBContext.newInstance(clazz);
-            return jc.createUnmarshaller().unmarshal(xml);
+            return new XmlExtractor(clazz, xml).invoke();
         } finally {
             if (null != connection) {
                 connection.disconnect();
             }
         }
+    }
+
+    /**
+     * Opens connection based on {@link GenericRestClient.Request} a transform input stream into
+     * String.
+     *
+     * @param r request
+     * @return string in response
+     * @throws Exception
+     */
+    public Object execute(Request r) throws Exception {
+        HttpURLConnection connection = null;
+        try {
+            String uri = r.getUri();
+            if (r.getEntity() != null) {
+                uri += r.getEntity();
+            }
+            connection = prepareConnection(r, uri);
+            InputStream stream = connection.getInputStream();
+
+            return new StringExtractor(stream).invoke();
+        } finally {
+            if (null != connection) {
+                connection.disconnect();
+            }
+        }
+    }
+
+    /**
+     * Prepares connection.
+     *
+     * @param r   holds content-type of connection
+     * @param uri uri
+     * @return created connetion
+     * @throws IOException
+     */
+    HttpURLConnection prepareConnection(Request r, String uri) throws IOException {
+        URL url = new URL(uri);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setInstanceFollowRedirects(false);
+        connection.setRequestMethod(r.getMethod());
+        connection.setRequestProperty("Content-Type", r.getType());
+        return connection;
     }
 
     /**
@@ -201,5 +239,46 @@ public class GenericRestClient {
         public String getEntity() {
             return entity;
         }
+    }
+
+    private class XmlExtractor implements Extractor {
+        private Class clazz;
+        private InputStream xml;
+
+        public XmlExtractor(Class clazz, InputStream xml) {
+            this.clazz = clazz;
+            this.xml = xml;
+        }
+
+        @Override
+        public Object invoke() throws JAXBException {
+            JAXBContext jc = JAXBContext.newInstance(clazz);
+            return jc.createUnmarshaller().unmarshal(xml);
+        }
+    }
+
+    private class StringExtractor implements Extractor {
+        private InputStream xml;
+
+        public StringExtractor(InputStream xml) {
+            this.xml = xml;
+        }
+
+        @Override
+        public Object invoke() throws JAXBException {
+            return convertStreamToString(xml);
+        }
+
+    }
+
+    /**
+     * Converts stream into string.
+     *
+     * @param is input stream
+     * @return string from stream
+     */
+    public static String convertStreamToString(java.io.InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next() : "";
     }
 }
