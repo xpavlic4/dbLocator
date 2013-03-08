@@ -21,7 +21,7 @@
     </modules>
 
     <scm>
-        <connection>scm:git:ssh://git@svn.focusmr.co.at:dblocator.git</connection>
+        <connection>scm:git:ssh://git@svn.focusmr.co.at/dblocator.git</connection>
         <developerConnection>scm:git:ssh://git@svn.focusmr.co.at/dblocator.git</developerConnection>
         <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
         <tag>HEAD</tag>
