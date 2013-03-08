@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.focusmr</groupId>
         <artifactId>focusmr-parent</artifactId>
-        <version>0.0.4-SNAPSHOT</version>
+        <version>0.0.4</version>
         <!--suppress CheckTagEmptyBody -->
         <relativePath></relativePath>
     </parent>
