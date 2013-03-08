@@ -6,7 +6,9 @@
     <parent>
         <groupId>com.focusmr</groupId>
         <artifactId>focusmr-parent</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.4-SNAPSHOT</version>
+        <!--suppress CheckTagEmptyBody -->
+        <relativePath></relativePath>
     </parent>
 
     <artifactId>DbLocatorApi</artifactId>
