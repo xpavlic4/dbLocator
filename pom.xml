@@ -72,6 +72,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
         <!-- First declare the APIs we depend on and need for compilation.
         All of them are provided by JBoss AS 7 -->
 
