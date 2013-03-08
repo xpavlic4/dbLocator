@@ -65,7 +65,7 @@ public class TnsNamesResourceRESTService {
         return xml;
     }
 
-    private TnsName fromDatabase(Databases d) {
+    TnsName fromDatabase(Databases d) {
         TnsNamesBuilder b = new TnsNamesBuilder();
         b.withTnsName(d.getTnsName());
         b.withHost(d.getHostname());
