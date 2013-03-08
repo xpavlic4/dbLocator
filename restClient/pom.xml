@@ -12,6 +12,9 @@
         <!--suppress CheckTagEmptyBody -->
         <relativePath></relativePath>
     </parent>
+    <artifactId>restClient</artifactId>
+    <version>1.0.16-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -20,6 +23,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <artifactId>restClient</artifactId>
-    <version>1.0.16-SNAPSHOT</version>
 </project>
