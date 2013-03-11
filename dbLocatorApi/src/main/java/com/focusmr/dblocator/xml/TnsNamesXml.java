@@ -2,6 +2,7 @@ package com.focusmr.dblocator.xml;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,5 +17,11 @@ public class TnsNamesXml {
 
     public void add(TnsNameXml xml) {
         l.add(xml);
+    }
+
+    @XmlTransient
+    @SuppressWarnings("unused")
+    public List<TnsNameXml> getNames() {
+        return l;
     }
 }
