@@ -16,6 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
 
 /**
@@ -31,7 +32,7 @@ public class TnsNamesResourceRESTService {
 
     @GET
     @Path("/tnsnames")
-    @Produces(TEXT_XML)
+    @Produces({TEXT_XML, APPLICATION_JSON})
     public TnsNamesXml listAllTns() {
         final List<Databases> results = em.createNamedQuery(Databases.Q.ALL, Databases.class).getResultList();
 
@@ -51,7 +52,7 @@ public class TnsNamesResourceRESTService {
 
     @GET
     @Path("/tnsnames/{country:[a-z][a-z]*}")
-    @Produces(TEXT_XML)
+    @Produces({TEXT_XML, APPLICATION_JSON})
     public TnsNameXml lookupMemberById(@PathParam("country") String country) {
         TypedQuery<Databases> query = em.createNamedQuery(Databases.Q.BY_COUNTRY, Databases.class);
         query.setParameter("country", country);
