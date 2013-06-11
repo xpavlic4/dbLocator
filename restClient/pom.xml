@@ -11,7 +11,7 @@
         <relativePath />
     </parent>
     <artifactId>restClient</artifactId>
-    <version>1.0.17-SNAPSHOT</version>
+    <version>1.0.17</version>
 
     <dependencies>
         <dependency>
@@ -21,4 +21,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+  <scm>
+    <tag>DbLocator-1.0.17</tag>
+  </scm>
 </project>

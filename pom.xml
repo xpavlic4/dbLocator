@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>DbLocator</artifactId>
-    <version>1.0.17-SNAPSHOT</version>
+    <version>1.0.17</version>
     <packaging>pom</packaging>
     <name>DbLocator</name>
 
@@ -23,7 +23,7 @@
         <connection>scm:git:ssh://git@collab.focusmr.co.at:7999/soa/dblocator.git</connection>
         <developerConnection>scm:git:ssh://git@collab.focusmr.co.at:7999/soa/dblocator.git</developerConnection>
         <url>https://projects.focusmr.com/projects/dblocator/repository/show</url>
-        <tag>HEAD</tag>
+        <tag>DbLocator-1.0.17</tag>
     </scm>
 
     <properties>
