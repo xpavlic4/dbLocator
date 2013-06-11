@@ -11,12 +11,12 @@
     </parent>
 
     <artifactId>DbLocatorApi</artifactId>
-    <version>1.0.17</version>
+    <version>1.0.18-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>com.focusmr</groupId>
             <artifactId>restClient</artifactId>
-            <version>1.0.17</version>
+            <version>1.0.18-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -46,8 +46,4 @@
         </dependency>
 
     </dependencies>
-
-  <scm>
-    <tag>DbLocator-1.0.17</tag>
-  </scm>
 </project>
