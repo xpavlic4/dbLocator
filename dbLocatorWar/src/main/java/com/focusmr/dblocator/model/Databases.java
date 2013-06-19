@@ -35,8 +35,10 @@ public class Databases implements Serializable {
      * Default value included to remove warning. Remove or modify at will. *
      */
     private static final long serialVersionUID = 1L;
-    //just use this, as we make only named queries
     @Id
+    @Column(name = "DB_ID")
+    private int dbId;
+    @Basic
     private String hostname;
     @Basic(optional = false)
     @Column(name = "TNSNAME")
@@ -116,5 +118,13 @@ public class Databases implements Serializable {
     @SuppressWarnings("unused")
     public void setNlsLang(String nlsLang) {
         this.nlsLang = nlsLang;
+    }
+
+    public int getDbId() {
+        return dbId;
+    }
+
+    public void setDbId(int dbId) {
+        this.dbId = dbId;
     }
 }
