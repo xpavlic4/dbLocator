@@ -59,7 +59,7 @@ public class Databases implements Serializable {
     private String nlsLang;
 
     @Basic(optional = true)
-    @Column(name = "DBVENDOR")
+    @Column(name = "DBVENDOR", columnDefinition = "char")
     private String dbVendor;
 
     //generated
