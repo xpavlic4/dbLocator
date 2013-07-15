@@ -42,6 +42,10 @@
                     <f:facet name="header">Country</f:facet>
                     #{_db.country}
                 </rich:column>
+                <rich:column sortBy="#{_db.dbVendor}">
+                    <f:facet name="header">DB Vendor</f:facet>
+                    #{_db.dbVendor}
+                </rich:column>
 
                 <rich:column>
                     <f:facet name="header">REST URL JDBC</f:facet>

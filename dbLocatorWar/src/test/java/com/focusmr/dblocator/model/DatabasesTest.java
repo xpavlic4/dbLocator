@@ -22,4 +22,10 @@ public class DatabasesTest {
         assertTrue(annotations.length > 1);
     }
 
+    @Test
+    public void testDbVendor() {
+        final Databases databases = new Databases();
+        databases.setDbVendor("oracle");
+        assertTrue(databases.getDbVendor().equals("oracle"));
+    }
 }
