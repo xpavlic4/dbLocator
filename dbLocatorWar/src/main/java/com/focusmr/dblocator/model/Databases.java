@@ -58,6 +58,10 @@ public class Databases implements Serializable {
     @Column(name = "NLS_LANG_SETTING")
     private String nlsLang;
 
+    @Basic(optional = true)
+    @Column(name = "DBVENDOR")
+    private String dbVendor;
+
     //generated
     public String getHostname() {
         return hostname;
@@ -126,5 +130,13 @@ public class Databases implements Serializable {
 
     public void setDbId(int dbId) {
         this.dbId = dbId;
+    }
+
+    public String getDbVendor() {
+        return dbVendor;
+    }
+
+    public void setDbVendor(String dbVendor) {
+        this.dbVendor = dbVendor;
     }
 }
