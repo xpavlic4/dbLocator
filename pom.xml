@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>DbLocator</artifactId>
-    <version>1.0.17-SNAPSHOT</version>
+    <version>1.0.18-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>DbLocator</name>
 

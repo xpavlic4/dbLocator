@@ -5,19 +5,19 @@
         <artifactId>focusmr-parent</artifactId>
         <version>0.0.6-SNAPSHOT</version>
         <!--suppress CheckTagEmptyBody -->
-        <relativePath/>
+        <relativePath />
 
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>DbLocatorClient</artifactId>
-    <version>1.0.17-SNAPSHOT</version>
+    <version>1.0.18-SNAPSHOT</version>
     <dependencies>
 
         <dependency>
             <groupId>com.focusmr</groupId>
             <artifactId>DbLocatorApi</artifactId>
-            <version>1.0.17-SNAPSHOT</version>
+            <version>1.0.18-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
